@@ -5,7 +5,7 @@ import Food from './Food.jsx'
 import Card from './Card.jsx'
 import PropsParent from './PropsParent.jsx'
 import UserGreetingsParent from './UserGreetingsParent.jsx'
-
+import GreetingCardParent from './GreetingCardParent.jsx'
 
 
 
@@ -13,6 +13,7 @@ function App() {
   return(
     <>
       <Header/>
+      <GreetingCardParent/>
       <UserGreetingsParent/>
       <PropsParent/>
       <Card/>
