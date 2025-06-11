@@ -8,15 +8,21 @@ function GreetingCardChild(props) {
             {props.isVip ? (
                 <div className="flex items-center space-x-2">
                     <span className="text-2xl">⭐</span>
-                    <span className="bg-yellow-400 twxt-black px-3 py-1 rounded-full font-semibold">Vip Member</span>
+                    <span className="bg-yellow-400 twxt-black px-3 py-1 rounded-full font-semibold">
+                        Vip Member
+                    </span>
                 </div>
             ) : (
-                <span className="bg-blue-500 text-white px-3 py-1 rounded-full">Member</span>
+                <span className="bg-blue-500 text-white px-3 py-1 rounded-full">
+                    Member
+                </span>
             )}
                 </div>
             ):(
                 <div>
-                    <h2 className="text-xl font-bold text-red-600">Please Log in</h2>
+                    <h2 className="text-xl font-bold text-red-600">
+                        Please Log in
+                    </h2>
                 </div>
             )}
         </div>

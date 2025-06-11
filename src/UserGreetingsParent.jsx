@@ -9,8 +9,12 @@ function UserGreetingsParent() {
             </h1>
             <div className="text-center">
                 <UserGreetingsChild 
-                    isLoggedIn={false} 
+                    isLoggedIn={true} 
                     username={"Hassan"}
+                />
+                <UserGreetingsChild 
+                    isLoggedIn={false} 
+                    username={"Ibrahim"}
                 />
             </div>
         </div>
