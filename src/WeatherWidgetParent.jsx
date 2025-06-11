@@ -1,56 +1,47 @@
 import WeatherWidgetChild from "./WeatherWidgetChild";
-import React, {useState} from "react";
 
-function WeatherWidgetParent() {
-    const [temp,setTemp] = useState("")
-    const handleTempChange = (e) => {
-        setTemp(e.target.value);
-    }
+// Demo App to test different weather scenarios
+const WeatherWidgetParent = () => {
+  const weatherScenarios = [
+    { temp: 45, raining: true, umbrella: true, label: "Cold + Rain + Umbrella" },
+    { temp: 72, raining: true, umbrella: false, label: "Warm + Rain + No Umbrella" },
+    { temp: 85, raining: false, umbrella: false, label: "Hot + No Rain" },
+    { temp: 55, raining: false, umbrella: true, label: "Cold + No Rain" },
+    { temp: 68, raining: true, umbrella: true, label: "Warm + Rain + Umbrella" },
+    { temp: 82, raining: true, umbrella: false, label: "Hot + Rain + No Umbrella" }
+  ];
 
-    return(
-        <div className="bg-blue-400 max-h-screen p-8">
-            <h1 className="font-bold text-white text-center text-3xl">
-                Weather Widgets UI Examples
-            </h1>
-
-            <div className="flex justify-center mt-3">
-                <input className=" border-gray-900 rounded outline-2 outline-white pl-5 pr-5" 
-                        type="number" placeholder="Enter Any Number"
-                        onChange={handleTempChange} value={temp} />
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-400 to-blue-600 p-8">
+      <h1 className="text-4xl font-bold text-white text-center mb-8">
+        Weather Widget Examples
+      </h1>
+      
+      <div className="flex flex-wrap justify-center gap-6">
+        {weatherScenarios.map((scenario, index) => (
+          <div key={index} className="flex flex-col items-center">
+            {/* Scenario label */}
+            <div className="bg-gray-800 text-white px-3 py-1 rounded-md text-sm mb-3">
+              {scenario.label}
             </div>
             
+            {/* Weather Widget */}
+            <WeatherWidgetChild 
+              temperature={scenario.temp}
+              isRaining={scenario.raining}
+              hasUmbrella={scenario.umbrella}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-            <div className="flex flex-wrap justify-center">
-                {temp < 50 ?  <WeatherWidgetChild 
-                    temperature={temp}
-                    isRaining={true}
-                    hasUmbrella={true} /> :
-                temp == 50 ? <WeatherWidgetChild 
-                    temperature={temp}
-                    isRaining={true}
-                    hasUmbrella={false} /> :
+export default WeatherWidgetParent;
 
-                    <WeatherWidgetChild 
-                    temperature={temp}
-                    isRaining={false}
-                    hasUmbrella={true}
-                     />
-                    }
 
-               
 
-               {/*  <WeatherWidgetChild 
-                    temperature={temp}
-                    isRaining={true}
-                    hasUmbrella={false} />
 
-                <WeatherWidgetChild 
-                    temperature={temp}
-                    isRaining={false}
-                     /> */}
-            </div>
-        </div>
-    );
-}
 
-export default WeatherWidgetParent
+

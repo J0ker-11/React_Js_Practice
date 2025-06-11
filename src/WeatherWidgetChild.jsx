@@ -1,48 +1,43 @@
 
 
-function WeatherWidgetChild(props) {
-    return(
-        <div className="pr-6 pl-6 pt-5 pb-5 m-4  rounded-lg bg-white shadow-lg max-w-lg text-center">
-            {props.isRaining && props.hasUmbrella /* && props.temperature < 50  */? (
-                <div className="">
-                    <span className="bg-black text-white rounded pt-1 pb-1 pl-2 pr-2 mb-6 text-sm">
-                        Cold + Rain + Umbrella
-                    </span>
-                    <p className="text-blue-400 text-center font-bold text-5xl mt-3 mb-6">
-                        {props.temperature}&deg;F
-                    </p>
-                    <p className="bg-blue-300 text-lg text-white text-center rounded w-60 pt-1 pb-1">
-                        Stay dry! ☂
-                    </p>
-                </div>
-            ): (
-                props.isRaining && !props.hasUmbrella /* && props.temperature == 50 */ ? (
-                    <div className="">
-                    <span className="bg-black text-white rounded pt-1 pb-1 pl-2 pr-2 mb-6 text-sm">
-                        Warm + Rain + No Umbrella
-                    </span>
-                    <p className="text-green-400 text-center font-bold text-5xl mt-3 mb-6">
-                        {props.temperature}&deg;F
-                    </p>
-                    <p className="bg-red-500 text-lg text-white text-center rounded w-60 pt-1 pb-1">
-                        You might get wet🌧
-                    </p>
-                </div>
-                ) :
-                 <div className="">
-                    <span className="bg-black text-white rounded pt-1 pb-1 pl-2 pr-2 mb-6 text-sm">
-                        Hot + No Rain 
-                    </span>
-                    <p className="text-red-600 text-center font-bold text-5xl mt-3 mb-6">
-                        {props.temperature}&deg;F
-                    </p>
-                    <p className="bg-yellow-500 text-lg text-black text-center rounded w-60 pt-1 pb-1">
-                        Nice Weather ☀ 
-                    </p>
-                </div> 
-            )}
-        </div>
-    );
-}
+
+// Weather Widget component with conditional rendering
+const WeatherWidgetChild = (props) => {
+  // Function to determine temperature color based on value
+ const getTemperatureColor = (temp) => {
+    if (temp < 60) return 'text-blue-600';      // Cold - Blue
+    if (temp >= 60 && temp <= 80) return 'text-green-600';  // Warm - Green
+    return 'text-red-600';  // Hot - Red
+  }; 
+
+  getTemperatureColor()
+
+  // Function to get weather message based on rain and umbrella status
+  const getWeatherMessage = () => {
+    if (props.isRaining && props.hasUmbrella) {
+      return { text: "Stay dry! ☂", style: "bg-blue-500 text-white" };
+    }
+    if (props.isRaining && !props.hasUmbrella) {
+      return { text: "You might get wet! 🌧", style: "bg-pink-500 text-white" };
+    }
+    return { text: "Nice weather! ☀", style: "bg-yellow-400 text-gray-800" };
+  };
+
+  const weatherMessage = getWeatherMessage();
+
+  return (
+    <div className="bg-white bg-opacity-95 rounded-xl p-6 w-64 text-center shadow-xl backdrop-blur-sm">
+      {/* Temperature display with conditional color */}
+      <div className="{text-5xl font-bold mb-4 ${getTemperatureColor(temperature)}}">
+        {props.temperature}°F
+      </div>
+      
+      {/* Weather message with conditional styling */}
+      <div className="{text-lg font-medium p-3 rounded-lg ${weatherMessage.style}}">
+        {weatherMessage.text}
+      </div>
+    </div>
+  );
+};
 
 export default WeatherWidgetChild
