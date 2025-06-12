@@ -4,13 +4,11 @@
 // Weather Widget component with conditional rendering
 const WeatherWidgetChild = (props) => {
   // Function to determine temperature color based on value
- const getTemperatureColor = (temp) => {
+ /*  const getTemperatureColor = (temp) => {
     if (temp < 60) return 'text-blue-600';      // Cold - Blue
     if (temp >= 60 && temp <= 80) return 'text-green-600';  // Warm - Green
     return 'text-red-600';  // Hot - Red
-  }; 
-
-  getTemperatureColor()
+  }; */
 
   // Function to get weather message based on rain and umbrella status
   const getWeatherMessage = () => {

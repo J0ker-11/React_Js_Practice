@@ -7,6 +7,7 @@ import PropsParent from './PropsParent.jsx'
 import UserGreetingsParent from './UserGreetingsParent.jsx'
 import GreetingCardParent from './GreetingCardParent.jsx'
 import WeatherWidgetParent from './WeatherWidgetParent.jsx'
+import RenderingList from './RenderingList.jsx'
 
 
 
@@ -14,6 +15,7 @@ function App() {
   return(
     <>
       <Header/>
+      <RenderingList/>
       <WeatherWidgetParent/>
       <GreetingCardParent/>
       <UserGreetingsParent/>
