@@ -24,7 +24,7 @@ const WeatherWidgetChild = (props) => {
   const weatherMessage = getWeatherMessage();
 
   return (
-    <div className="bg-white bg-opacity-95 rounded-xl p-6 w-64 text-center shadow-xl backdrop-blur-sm">
+    <div className="w-64 p-6 text-center bg-white shadow-xl bg-opacity-95 rounded-xl backdrop-blur-sm">
       {/* Temperature display with conditional color */}
       <div className="{text-5xl font-bold mb-4 ${getTemperatureColor(temperature)}}">
         {props.temperature}°F
