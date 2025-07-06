@@ -7,7 +7,7 @@ const TodoListApp = () => {
     const handleInputChange = (event) => {
         setNewTask(event.target.value);
         
-    }
+        }
 
     const addTask = () => {
         setTask(t => [...t,newTask])
@@ -24,7 +24,9 @@ const TodoListApp = () => {
             {tasks.map((task,index) =>
             <li key={index}>
                 <span>{task}</span>
-
+                <button>Delete</button>
+                <button>Move Up</button>
+                <button>Move Down</button>
             </li> )}
         </ol>
     </div>
